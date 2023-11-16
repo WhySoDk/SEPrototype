@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.prototype2.databinding.ActivityMainBinding
 import android.view.View
 import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
 
@@ -27,6 +29,30 @@ class MainActivity : AppCompatActivity() {
         registerButton.setOnClickListener{
             val intent = Intent(this@MainActivity, RegistrationActivity::class.java)
             startActivity(intent)
+        }
+
+        val loginButton: Button = findViewById(R.id.loginButton)
+        loginButton.setOnClickListener{
+
+            val emailInput: EditText = findViewById(R.id.emailInput)
+            var email = emailInput.text.toString()
+            val pwdInput: EditText = findViewById(R.id.pwdInput)
+            var pwd = pwdInput.text.toString()
+
+            if(db.isUserCredentialsValid(email, pwd)){
+                Toast.makeText(
+                    this,
+                    "Login!!!",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }else{
+                Toast.makeText(
+                    this,
+                    "Wrong Password!!",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+
         }
 
     }
