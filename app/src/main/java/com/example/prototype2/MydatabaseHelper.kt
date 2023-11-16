@@ -154,6 +154,43 @@ class MydatabaseHelper(context:Context) : SQLiteOpenHelper(context, DATABASE_NAM
         db.close()
     }
 
+    fun checkAppointment(Username: String,Date: String): Boolean{
+        val db = writableDatabase
+        val selection = "$APPOINTMENT_User_NAME = ? AND $APPOINTMENT_Date =?"
+        val AppointmentList = mutableListOf<String>()
+        val cursor = db.query(
+            "$APPOINTMENT_TABLE_NAME",
+            null,
+            selection,
+            arrayOf(Username,Date),
+            null,
+            null,
+            null
+        )
+        try {
+            if (cursor.count == 0) {
+                Log.d(
+                    "getAppointmentDate Query Test",
+                    "No data"
+                )
+                return false
+
+            } else {
+                if (cursor.moveToFirst()) {
+                    Log.d(
+                        "getAppointmentDate Query Test",
+                        "Already have  data"
+                    )
+                    return true
+                }
+            }
+        } finally {
+            cursor.close()
+            db.close()
+        }
+        return false
+    }
+
     fun UpdateAppointment(Username: String,Olddate: String,Newdate: String){
         val db = writableDatabase
         val selection = "$APPOINTMENT_User_NAME = ? AND $APPOINTMENT_Date =?"
