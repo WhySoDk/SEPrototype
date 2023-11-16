@@ -168,6 +168,7 @@ class MydatabaseHelper(context:Context) : SQLiteOpenHelper(context, DATABASE_NAM
             null
         )
         try {
+            //Return false if there is no Appointment
             if (cursor.count == 0) {
                 Log.d(
                     "getAppointmentDate Query Test",
@@ -176,10 +177,11 @@ class MydatabaseHelper(context:Context) : SQLiteOpenHelper(context, DATABASE_NAM
                 return false
 
             } else {
+                //Return true if there is duplicate appointment
                 if (cursor.moveToFirst()) {
                     Log.d(
                         "getAppointmentDate Query Test",
-                        "Already have  data"
+                        "Already have data"
                     )
                     return true
                 }
