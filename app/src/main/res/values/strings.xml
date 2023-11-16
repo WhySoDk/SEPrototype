@@ -24,4 +24,8 @@
     <string name="viewAppointment">View Appointment</string>
     <string name="menu">Menu</string>
     <string name="selectAppointmentDate">Select Appointment date</string>
+    <string name="ChangeAppointmentDate">Change Appointment date</string>
+    <string name="OldAppointmentDate">Old Appointment date</string>
+    <string name="NewAppointmentDate">New Appointment date</string>
+
 </resources>

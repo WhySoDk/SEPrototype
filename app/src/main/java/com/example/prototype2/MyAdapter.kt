@@ -1,6 +1,7 @@
 package com.example.prototype2
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,6 +21,13 @@ class MyAdapter(private val Appointment: List<String>, val context: Context): Re
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bindNumberValue!!.text = "List #" + (position + 1)
         holder.bindTextValue!!.text = Appointment[position]
+
+        holder.itemView.setOnClickListener {
+            // Start the new activity with the value from the clicked row
+            val intent = Intent(context, ChangeAppointmentDateActivity::class.java)
+            intent.putExtra("toBeChangeDate", Appointment[position])
+            context.startActivity(intent)
+        }
     }
 
 }

@@ -157,7 +157,7 @@
                 android:paddingTop="15dp">
 
                 <TextView
-                    android:id="@+id/selectAppointText"
+                    android:id="@+id/NewAppointText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/bDate"
@@ -267,7 +267,7 @@
                 android:paddingBottom="30dp">
 
                 <Button
-                    android:id="@+id/submitAppointmentButton"
+                    android:id="@+id/changeAppointmentButton"
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"

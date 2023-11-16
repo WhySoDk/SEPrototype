@@ -27,7 +27,7 @@ class RegistrationActivity : AppCompatActivity() {
 
         db = MydatabaseHelper(this)
 
-        val registerButton: View = findViewById(R.id.submitAppointmentButton)
+        val registerButton: View = findViewById(R.id.changeAppointmentButton)
         registerButton.setOnClickListener {
 
             var flag = true
