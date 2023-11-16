@@ -22,12 +22,6 @@ class MydatabaseHelper(context:Context) : SQLiteOpenHelper(context, DATABASE_NAM
         private const val USER_BDATE = "USER_BDATE"
         private const val USER_PWD = "USER_PWD"
 
-        //Appointment table detail
-        private const val APPOINTMENT_TABLE_NAME = "APPOINTMENT_Library"
-        private const val APPOINTMENT_ID = "APPOINTMENT_ID"
-        private const val APPOINTMENT_User_NAME = "APPOINTMENT_User_ID"
-        private const val APPOINTMENT_Date = "APPOINTMENT_Date"
-
     }
 
     override fun onCreate(db: SQLiteDatabase?) {
@@ -40,18 +34,11 @@ class MydatabaseHelper(context:Context) : SQLiteOpenHelper(context, DATABASE_NAM
                 USER_BDATE + " TEXT, " +
                 USER_PWD + " TEXT); "
         db!!.execSQL(query)
-        Log.d("Query User Sting", query)
-        val query2 = "CREATE TABLE " + APPOINTMENT_TABLE_NAME + " ("+
-                APPOINTMENT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,  " +
-                APPOINTMENT_User_NAME + " TEXT, " +
-                APPOINTMENT_Date + " TEXT); "
-        db!!.execSQL(query2)
-        Log.d("Query Appointment Sting", query2)
+        Log.d("Queary Sting", query)
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, p1: Int, p2: Int) {
         db?.execSQL("drop table if exists  $TABLE_NAME")
-        db?.execSQL("drop table if exists  $APPOINTMENT_TABLE_NAME")
         onCreate(db)
     }
 
@@ -66,16 +53,6 @@ class MydatabaseHelper(context:Context) : SQLiteOpenHelper(context, DATABASE_NAM
             put(USER_PWD,Account.USER_PWD)
         }
         db.insert(TABLE_NAME,null,values)
-        db.close()
-    }
-
-    fun insertAppointment(Username: String,Date: String){
-        val db = writableDatabase
-        val values = ContentValues().apply {
-            put(APPOINTMENT_User_NAME,Username)
-            put(APPOINTMENT_Date,Date)
-        }
-        db.insert(APPOINTMENT_TABLE_NAME,null,values)
         db.close()
     }
 
@@ -108,6 +85,16 @@ class MydatabaseHelper(context:Context) : SQLiteOpenHelper(context, DATABASE_NAM
         }
     }
 
+    fun CheckUser(Username: String,password: String): Boolean{
+        val db = this.readableDatabase
+        val cursor = db.rawQuery("SELECT * FROM $TABLE_NAME WHERE $USER_EMAIL = $Username AND $USER_PWD = $password", null)
+        try {
+            return cursor.moveToFirst()
+        }finally {
+            cursor.close()
+            db.close()
+        }
+    }
 
     fun isUserCredentialsValid(email: String, password: String): Boolean {
         val db = this.readableDatabase
@@ -123,7 +110,5 @@ class MydatabaseHelper(context:Context) : SQLiteOpenHelper(context, DATABASE_NAM
 
         return isValid
     }
-
-
 
 }
