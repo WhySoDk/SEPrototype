@@ -22,6 +22,12 @@ class MydatabaseHelper(context:Context) : SQLiteOpenHelper(context, DATABASE_NAM
         private const val USER_BDATE = "USER_BDATE"
         private const val USER_PWD = "USER_PWD"
 
+        //Appointment table detail
+        private const val APPOINTMENT_TABLE_NAME = "APPOINTMENT_Library"
+        private const val APPOINTMENT_ID = "APPOINTMENT_ID"
+        private const val APPOINTMENT_User_NAME = "APPOINTMENT_User_ID"
+        private const val APPOINTMENT_Date = "APPOINTMENT_Date"
+
     }
 
     override fun onCreate(db: SQLiteDatabase?) {
