@@ -144,7 +144,6 @@ class MydatabaseHelper(context:Context) : SQLiteOpenHelper(context, DATABASE_NAM
         return AppointmentList
     }
 
-
     fun insertAppointment(Username: String,Date: String){
         val db = writableDatabase
         val values = ContentValues().apply {
@@ -152,6 +151,17 @@ class MydatabaseHelper(context:Context) : SQLiteOpenHelper(context, DATABASE_NAM
             put(APPOINTMENT_Date,Date)
         }
         db.insert(APPOINTMENT_TABLE_NAME,null,values)
+        db.close()
+    }
+
+    fun UpdateAppointment(Username: String,Olddate: String,Newdate: String){
+        val db = writableDatabase
+        val selection = "$APPOINTMENT_User_NAME = ? AND $APPOINTMENT_Date =?"
+        val selectionArgs = arrayOf(Username, Olddate)
+        val values = ContentValues().apply {
+            put(APPOINTMENT_Date,Newdate)
+        }
+        db.update(APPOINTMENT_TABLE_NAME,values,selection,selectionArgs)
         db.close()
     }
 
