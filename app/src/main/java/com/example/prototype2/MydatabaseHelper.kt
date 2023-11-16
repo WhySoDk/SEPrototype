@@ -40,7 +40,13 @@ class MydatabaseHelper(context:Context) : SQLiteOpenHelper(context, DATABASE_NAM
                 USER_BDATE + " TEXT, " +
                 USER_PWD + " TEXT); "
         db!!.execSQL(query)
-        Log.d("Queary Sting", query)
+        Log.d("Query User Sting", query)
+        val query2 = "CREATE TABLE " + APPOINTMENT_TABLE_NAME + " ("+
+                APPOINTMENT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,  " +
+                APPOINTMENT_User_NAME + " TEXT, " +
+                APPOINTMENT_Date + " TEXT); "
+        db!!.execSQL(query2)
+        Log.d("Query Appointment Sting", query2)
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, p1: Int, p2: Int) {
@@ -59,6 +65,16 @@ class MydatabaseHelper(context:Context) : SQLiteOpenHelper(context, DATABASE_NAM
             put(USER_PWD,Account.USER_PWD)
         }
         db.insert(TABLE_NAME,null,values)
+        db.close()
+    }
+
+    fun insertAppointment(Username: String,Date: String){
+        val db = writableDatabase
+        val values = ContentValues().apply {
+            put(APPOINTMENT_User_NAME,Username)
+            put(APPOINTMENT_Date,Date)
+        }
+        db.insert(APPOINTMENT_TABLE_NAME,null,values)
         db.close()
     }
 
