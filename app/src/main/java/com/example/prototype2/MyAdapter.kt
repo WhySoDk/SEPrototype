@@ -18,11 +18,13 @@ class MyAdapter(private val Appointment: List<String>, val context: Context): Re
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.bindNumberValue!!.text = "List #" + (position + 1)
         holder.bindTextValue!!.text = Appointment[position]
     }
 
 }
 
 class ViewHolder(itemview: View): RecyclerView.ViewHolder(itemview) {
-    val bindTextValue: TextView? = itemview.findViewById(R.id.appointmentNumberText)
+    val bindNumberValue: TextView? = itemview.findViewById(R.id.appointmentNumberText)
+    val bindTextValue: TextView? = itemview.findViewById(R.id.appointmentTimeText)
 }
