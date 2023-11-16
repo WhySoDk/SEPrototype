@@ -8,6 +8,7 @@
     <string name="password">Password</string>
     <string name="gender">Gender</string>
     <string name="bDate">Birth date</string>
+    <string name="bDatePattern">DD/MM/YYYY ie. 01/12/2005</string>
     <string name="tel">Telephone number</string>
     <string name="tel_Hint">0XX-XXX-XXXX</string>
     <string name="male">Male</string>

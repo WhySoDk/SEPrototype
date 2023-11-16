@@ -85,17 +85,6 @@ class MydatabaseHelper(context:Context) : SQLiteOpenHelper(context, DATABASE_NAM
         }
     }
 
-    fun CheckUser(Username: String,password: String): Boolean{
-        val db = this.readableDatabase
-        val cursor = db.rawQuery("SELECT * FROM $TABLE_NAME WHERE $USER_EMAIL = $Username AND $USER_PWD = $password", null)
-        try {
-            return cursor.moveToFirst()
-        }finally {
-            cursor.close()
-            db.close()
-        }
-    }
-
     fun isUserCredentialsValid(email: String, password: String): Boolean {
         val db = this.readableDatabase
         val selection = "$USER_EMAIL = ? AND $USER_PWD = ?"
