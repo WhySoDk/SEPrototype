@@ -15,7 +15,9 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var db: MydatabaseHelper
-
+    companion object {
+        lateinit var userRealname: String
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,11 +42,14 @@ class MainActivity : AppCompatActivity() {
             var pwd = pwdInput.text.toString()
 
             if(db.isUserCredentialsValid(email, pwd)){
+//                userName = //Copter wrting
                 Toast.makeText(
                     this,
                     "Login!!!",
                     Toast.LENGTH_SHORT
                 ).show()
+                val intent = Intent(this@MainActivity, HubActivity::class.java)
+                startActivity(intent)
             }else{
                 Toast.makeText(
                     this,

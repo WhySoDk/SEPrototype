@@ -4,19 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    tools:context=".MainActivity">
+    tools:context=".AddAppointmentActivity">
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/registText2"
@@ -25,7 +22,7 @@
             android:background="#3F51B5"
             android:fontFamily="sans-serif-medium"
             android:gravity="center"
-            android:text="@string/login"
+            android:text="@string/addAppointment"
             android:textColor="#FFFFFF"
             android:textSize="34sp"
             android:typeface="monospace" />
@@ -36,41 +33,46 @@
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:paddingLeft="40dp"
-            android:paddingTop="45dp"
             android:paddingRight="40dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:paddingTop="15dp">
 
                 <TextView
-                    android:id="@+id/bDateText"
+                    android:id="@+id/nameText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/email"
-                    android:textAlignment="center"
+                    android:text="@string/name"
+                    android:textAlignment="textStart"
                     android:textColor="#3d3d3d"
-                    android:textSize="25sp"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/emailInput"
+                    android:id="@+id/nameNotInput"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:allowUndo="false"
+                    android:autoText="false"
+                    android:clickable="false"
                     android:ems="10"
-                    android:hint="@string/emailHint"
-                    android:inputType="textEmailAddress"
-                    android:paddingTop="15dp"
-                    android:text="admin@g.c" />
+                    android:enabled="false"
+                    android:hint="@string/name"
+                    android:inputType="text"
+                    android:paddingTop="15dp" />
             </LinearLayout>
 
             <LinearLayout
@@ -80,24 +82,23 @@
                 android:paddingTop="15dp">
 
                 <TextView
-                    android:id="@+id/pedText"
+                    android:id="@+id/selectAppointText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/password"
-                    android:textAlignment="center"
+                    android:text="@string/selectAppointmentDate"
+                    android:textAlignment="textStart"
                     android:textColor="#3d3d3d"
-                    android:textSize="25sp"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/pwdInput"
+                    android:id="@+id/AppointdateInput"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:hint="@string/password"
-                    android:inputType="textPassword"
-                    android:paddingTop="15dp"
-                    android:text="admin123" />
+                    android:hint="@string/bDatePattern"
+                    android:inputType="date"
+                    android:paddingTop="15dp" />
 
             </LinearLayout>
 
@@ -106,24 +107,17 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:paddingTop="50dp">
+                android:paddingTop="30dp"
+                android:paddingBottom="30dp">
 
                 <Button
-                    android:id="@+id/loginButton"
-                    android:layout_width="150dp"
-                    android:layout_height="60dp"
-                    android:text="@string/login"
-                    android:textSize="16sp" />
-
-                <Button
-                    android:id="@+id/regisButton"
-                    android:layout_width="150dp"
-                    android:layout_height="60dp"
-                    android:backgroundTint="#656750A3"
-                    android:text="@string/registration" />
+                    android:id="@+id/submitAppointmentButton"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/submit" />
 
             </LinearLayout>
-
         </LinearLayout>
     </ScrollView>
 
