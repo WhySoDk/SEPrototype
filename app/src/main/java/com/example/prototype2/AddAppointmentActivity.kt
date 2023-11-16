@@ -33,7 +33,10 @@ class AddAppointmentActivity : AppCompatActivity() {
                 Toast.makeText(this, "invalid appointment date", Toast.LENGTH_SHORT).show();
                 flag = false;
             }
-
+            else if(db.checkAppointment(MainActivity.Companion.userRealname, appointmentDate)){
+                Toast.makeText(this, "duplicate appointment date, pick another", Toast.LENGTH_SHORT).show();
+                flag = false;
+            }
             if(flag){
                 db.insertAppointment(MainActivity.Companion.userRealname, appointmentDate)
                 db.printData()
