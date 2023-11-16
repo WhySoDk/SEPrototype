@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
             var pwd = pwdInput.text.toString()
 
             if(db.isUserCredentialsValid(email, pwd)){
-//                userName = //Copter wrting
+                userRealname = db.getUsername(email)
                 Toast.makeText(
                     this,
                     "Login!!!",

@@ -146,12 +146,6 @@
                         android:text="@string/ga"
                         android:textColor="#3d3d3d" />
 
-                    <RadioButton
-                        android:id="@+id/radioButtonOthers"
-                        android:layout_width="100dp"
-                        android:layout_height="wrap_content"
-                        android:text="@string/other"
-                        android:textColor="#3d3d3d" />
                 </RadioGroup>
 
             </LinearLayout>
