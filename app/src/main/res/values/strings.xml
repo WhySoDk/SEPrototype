@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Prototype2</string>
+    <string name="registration">Registration</string>
+    <string name="name">Name</string>
+    <string name="familyName">Family name</string>
+    <string name="email">Email</string>
+    <string name="emailHint">Example@email.com</string>
+    <string name="password">Password</string>
+    <string name="gender">Gender</string>
+    <string name="bDate">Birth date</string>
+    <string name="tel">Telephone number</string>
+    <string name="tel_Hint">0XX-XXX-XXXX</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="ga">เก</string>
+    <string name="other">Others</string>
+    <string name="submit">Submit</string>
+    <string name="login">Login</string>
+    <string name="title_activity_registeration">Null</string>
+    <string name="large_text">Null</string>
+    <string name="action_settings">Null</string>
+</resources>
