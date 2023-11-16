@@ -68,6 +68,42 @@ class MydatabaseHelper(context:Context) : SQLiteOpenHelper(context, DATABASE_NAM
         db.close()
     }
 
+    fun getUsername(Email: String): String{
+        val db = writableDatabase
+        val selection = "$USER_EMAIL = ?"
+        var Username =""
+        val cursor = db.query(
+            "$TABLE_NAME",
+            null,
+            selection,
+            arrayOf(Email),
+            null,
+            null,
+            null
+        )
+
+        try {
+            if (cursor.count == 0){
+                Log.d(
+                    "getUsername Query Test",
+                    "No data"
+                )
+            }else {
+                if (cursor.moveToFirst()){
+                    Username = cursor.getString(cursor.getColumnIndexOrThrow(USER_NAME))
+                    Log.d(
+                        "getAppointmentDate Query Test",
+                        "Username: $Username"
+                    )
+                }
+            }
+        }finally {
+            cursor.close()
+            db.close()
+        }
+        return Username
+    }
+
     fun getAppointmentDate(Username: String): List<String> {
         val db = writableDatabase
         val selection = "$APPOINTMENT_User_NAME = ?"
