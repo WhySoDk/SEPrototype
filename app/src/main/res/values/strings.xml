@@ -20,4 +20,8 @@
     <string name="title_activity_registeration">Null</string>
     <string name="large_text">Null</string>
     <string name="action_settings">Null</string>
+    <string name="addAppointment">Add an Appointment</string>
+    <string name="viewAppointment">View Appointment</string>
+    <string name="menu">Menu</string>
+    <string name="selectAppointmentDate">Select Appointment date</string>
 </resources>

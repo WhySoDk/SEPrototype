@@ -14,6 +14,7 @@ class RegistrationActivity : AppCompatActivity() {
 
     private lateinit var db: MydatabaseHelper
 
+
     val emailPattern = Regex("[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+")
     val namePattern = Regex("[a-zA-Z]{1,}")
     val telPattern = Regex("[0]+[0-9]{9}")
@@ -26,13 +27,13 @@ class RegistrationActivity : AppCompatActivity() {
 
         db = MydatabaseHelper(this)
 
-        val registerButton: View = findViewById(R.id.submitButton)
+        val registerButton: View = findViewById(R.id.submitAppointmentButton)
         registerButton.setOnClickListener {
 
             var flag = true
 
 
-            val nameInput: EditText = findViewById(R.id.nameInput)
+            val nameInput: EditText = findViewById(R.id.nameNotInput)
             val name = nameInput.text.toString().trim()
 
             val famnameInput: EditText = findViewById(R.id.famnameInput)
@@ -49,7 +50,7 @@ class RegistrationActivity : AppCompatActivity() {
                 gender = ganderSelect.text.toString().trim()
             }
 
-            val BdayInput: EditText = findViewById(R.id.bdateInput)
+            val BdayInput: EditText = findViewById(R.id.AppointdateInput)
             val Bday = BdayInput.text.toString().trim()
 
             val EmailInput: EditText = findViewById(R.id.emailInput)
