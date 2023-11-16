@@ -68,6 +68,47 @@ class MydatabaseHelper(context:Context) : SQLiteOpenHelper(context, DATABASE_NAM
         db.close()
     }
 
+    fun getAppointmentDate(Username: String): List<String> {
+        val db = writableDatabase
+        val selection = "$APPOINTMENT_User_NAME = ?"
+        val AppointmentList = mutableListOf<String>()
+        val cursor = db.query(
+            "$APPOINTMENT_TABLE_NAME",
+            null,
+            selection,
+            arrayOf(Username),
+            null,
+            null,
+            null
+        )
+
+        try {
+            if (cursor.count == 0) {
+                Log.d(
+                    "getAppointmentDate Query Test",
+                    "No data"
+                )
+            } else {
+                if (cursor.moveToFirst()) {
+                    do {
+                        val date = cursor.getString(cursor.getColumnIndexOrThrow(APPOINTMENT_Date))
+                        Log.d(
+                            "getAppointmentDate Query Test",
+                            "date: $date"
+                        )
+                        AppointmentList.add(date)
+                    } while (cursor.moveToNext())
+                }
+            }
+        } finally {
+            cursor.close()
+            db.close()
+        }
+
+        return AppointmentList
+    }
+
+
     fun insertAppointment(Username: String,Date: String){
         val db = writableDatabase
         val values = ContentValues().apply {
@@ -107,16 +148,6 @@ class MydatabaseHelper(context:Context) : SQLiteOpenHelper(context, DATABASE_NAM
         }
     }
 
-    fun CheckUser(Username: String,password: String): Boolean{
-        val db = this.readableDatabase
-        val cursor = db.rawQuery("SELECT * FROM $TABLE_NAME WHERE $USER_EMAIL = $Username AND $USER_PWD = $password", null)
-        try {
-            return cursor.moveToFirst()
-        }finally {
-            cursor.close()
-            db.close()
-        }
-    }
 
     fun isUserCredentialsValid(email: String, password: String): Boolean {
         val db = this.readableDatabase
