@@ -38,7 +38,7 @@ class ChangeAppointmentDateActivity : AppCompatActivity() {
                 Toast.makeText(this, "invalid appointment date", Toast.LENGTH_SHORT).show();
                 flag = false;
             }
-            else if(db.checkAppointment("admin admin", appointmentDate)){
+            else if(db.checkAppointment(MainActivity.userRealname, appointmentDate)){
                 Toast.makeText(this, "duplicate appointment date, pick another", Toast.LENGTH_SHORT).show();
                 flag = false;
             }

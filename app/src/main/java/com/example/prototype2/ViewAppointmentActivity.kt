@@ -28,6 +28,7 @@ class ViewAppointmentActivity : AppCompatActivity() {
         refrashbut.setOnClickListener {
             val intent = Intent(this, ViewAppointmentActivity::class.java)
             startActivity(intent)
+            finish()
         }
 
     }
