@@ -138,14 +138,6 @@
                         android:text="@string/female"
                         android:textColor="#3d3d3d" />
 
-                    <RadioButton
-                        android:id="@+id/radioButtonGa"
-                        android:layout_width="100dp"
-                        android:layout_height="wrap_content"
-                        android:checked="false"
-                        android:text="@string/ga"
-                        android:textColor="#3d3d3d" />
-
                 </RadioGroup>
 
             </LinearLayout>

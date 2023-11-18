@@ -69,8 +69,7 @@
                     android:ems="10"
                     android:hint="@string/emailHint"
                     android:inputType="textEmailAddress"
-                    android:paddingTop="15dp"
-                    android:text="admin@g.c" />
+                    android:paddingTop="15dp" />
             </LinearLayout>
 
             <LinearLayout
@@ -96,8 +95,7 @@
                     android:ems="10"
                     android:hint="@string/password"
                     android:inputType="textPassword"
-                    android:paddingTop="15dp"
-                    android:text="admin123" />
+                    android:paddingTop="15dp" />
 
             </LinearLayout>
 
